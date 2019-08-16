@@ -33,6 +33,7 @@ const Inputcss = styled.div`
         padding-left:10px;
         height:100%;
         position:relative;
+        border-radius:${props => props.borderradius}px;
         border:${props => props.borderwidth}px solid ${props => {
             if (props.usetheme) {
                 return color[props.theme] || props.bordercolor
@@ -43,28 +44,10 @@ const Inputcss = styled.div`
         background:${props => props.background};
         font-size:${props => typeof props.fontsize === "number" ? props.fontsize + "px" : props.fontsize};
         color:${props => props.fontcolor};
-        box-shadow:${props => props.boxshadow}
+        box-shadow:${props => props.boxshadow};
         transition:all 0.2s;
         &:focus{
             box-shadow:${props => props.activeboxshadow}
-        }
-    }
-    span{
-        color:${props => {
-            if (props.usetheme) {
-                return color[props.theme] || props.iconcolor
-            } else {
-                return props.iconcolor
-            }
-        }}
-        &:before{
-            color:${props => {
-                if (props.usetheme) {
-                    return color[props.theme] || props.iconcolor
-                } else {
-                    return props.iconcolor
-                }
-            }}
         }
     }
     .cha{
@@ -75,6 +58,22 @@ const Inputcss = styled.div`
         margin-top:-7px;
         cursor:pointer;
         font-size:14px;
+        color:${props => {
+            if (props.usetheme) {
+                return color[props.theme] || props.iconcolor
+            } else {
+                return props.iconcolor
+            }
+        }};
+        &:before{
+            color:${props => {
+                if (props.usetheme) {
+                    return color[props.theme] || props.iconcolor
+                } else {
+                    return props.iconcolor
+                }
+            }}
+        }
     }
     .yan{
         position: absolute;
@@ -84,6 +83,22 @@ const Inputcss = styled.div`
         z-index: 40;
         margin-top: -9px;
         cursor: pointer;
+        color:${props => {
+        if (props.usetheme) {
+            return color[props.theme] || props.eyecolor
+        } else {
+            return props.eyecolor
+        }
+    }};
+        &:before{
+            color:${props => {
+        if (props.usetheme) {
+            return color[props.theme] || props.eyecolor
+        } else {
+            return props.eyecolor
+        }
+    }}
+        }
     }
     .yanclose{
         position: absolute;
@@ -93,6 +108,22 @@ const Inputcss = styled.div`
         z-index: 40;
         margin-top: -9px;
         cursor: pointer;
+        color:${props => {
+        if (props.usetheme) {
+            return color[props.theme] || props.eyecolor
+        } else {
+            return props.eyecolor
+        }
+    }};
+        &:before{
+            color:${props => {
+        if (props.usetheme) {
+            return color[props.theme] || props.eyecolor
+        } else {
+            return props.eyecolor
+        }
+    }}
+        }
     }
     .search{
         position: absolute;
@@ -102,6 +133,22 @@ const Inputcss = styled.div`
         z-index: 40;
         margin-top: -8px;
         cursor: pointer;
+        color:${props => {
+        if (props.usetheme) {
+            return color[props.theme] || props.iconcolor
+        } else {
+            return props.iconcolor
+        }
+    }};
+        &:before{
+            color:${props => {
+        if (props.usetheme) {
+            return color[props.theme] || props.iconcolor
+        } else {
+            return props.iconcolor
+        }
+    }}
+        }
     }
 `;
 class ReactInput extends Component {
@@ -212,6 +259,7 @@ ReactInput.defaultProps = {
     fontcolor:"#333",
     refresh: false,//是否刷新state bool值
     haseye:false,
+    eyecolor:"#1D82FE",
     iconcolor: "#1D82FE",
     activeboxshadow:"none",
     pattern:null,//外部正则
@@ -251,6 +299,7 @@ ReactInput.propTypes={
     refresh: PropTypes.bool,
     haseye: PropTypes.bool,
     iconcolor: PropTypes.string,
+    eyecolor: PropTypes.string,
     pattern: PropTypes.object
 };
 export default ReactInput;

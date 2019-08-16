@@ -33,8 +33,9 @@ fontcolor | String | #333 | 输入框里字的颜色，16进制、rgb值、或�
 readonly | Boolean | false | 是否只读 
 placeholder | String | 请输入内容 | 输入框的placeholder
 maxlength | Number | 200 | 输入框可输入最大长度
-iconcolor | String | #1890FF | 输入框里字的颜色，16进制、rgb值、或者其他颜色设置
+iconcolor | String | #1890FF | 输入框里图标的颜色，16进制、rgb值、或者其他颜色设置
 haseye | Boolean | false | 当type是password时有效 设置要不要眼睛
+eyecolor | String | #1890FF | 输入框里眼睛图标的颜色，16进制、rgb值、或者其他颜色设置
 pattern | Object | null | 正则
 allcss | String | "" | 完整的css代码 字符串
 
