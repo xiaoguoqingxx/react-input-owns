@@ -41,13 +41,13 @@ allcss | String | "" | 完整的css代码 字符串
 
 ### 需要传递的props方法如下表：
 
-`changeContent(name,value)`
+`changeContent(value,name)`
 
 1、name 是 input name值
 
 2、value 是 输入框里的内容
 
-`focusContent(name,value)` 用于取消报错
+`focusContent(value,name)` 用于取消报错
 
 1、name 是 input name值
 

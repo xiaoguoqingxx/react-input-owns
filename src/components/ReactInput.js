@@ -172,13 +172,13 @@ class ReactInput extends Component {
         this.setState({
             value: value
         });
-        this.props.changeContent && this.props.changeContent(this.props.name,value)
+        this.props.changeContent && this.props.changeContent(value,this.props.name)
     }
     handleFocus(){
         this.setState({
             showcha: true
         })
-        this.props.focusContent && this.props.focusContent(this.props.name,"")
+        this.props.focusContent && this.props.focusContent("", this.props.name)
     }
     clickClear(){
         let type="";
@@ -191,7 +191,7 @@ class ReactInput extends Component {
         },()=>{
             
         });
-        this.props.changeContent && this.props.changeContent(this.props.name,"")
+        this.props.changeContent && this.props.changeContent("",this.props.name)
     }
     changeType(str) {
         this.setState({
