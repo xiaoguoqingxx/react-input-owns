@@ -14,19 +14,9 @@ const Inputcss = styled.div`
     position:relative;
     ${outer}
     input{
-        width:${(props) => {
-            if (props.issearch) {
-                return "calc(100% - 30px)"
-            } else if (props.type === "password") {
-                if (props.haseye) {
-                    return "calc(100% - 60px)"
-                } else {
-                    return "calc(100% - 30px)"
-                }
-            } else {
-                return "calc(100% - 30px)"
-            }
-        }};
+        display:block;
+        width:100%;
+        box-sizing:border-box;
         padding-right:${(props) =>{
             if(props.issearch){
                 return "20px"
@@ -42,7 +32,7 @@ const Inputcss = styled.div`
         }};
         outline:none;
         padding-left:10px;
-        height:calc(100% - ${props => props.borderwidth*2}px);
+        height:100%;
         position:relative;
         border:${props => props.borderwidth}px solid ${props => {
             if (props.usetheme) {
