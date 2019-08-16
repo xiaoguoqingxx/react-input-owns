@@ -16,7 +16,6 @@ const Inputcss = styled.div`
     input{
         display:block;
         width:100%;
-        box-sizing:border-box;
         padding-right:${(props) =>{
             if(props.issearch){
                 return "20px"
@@ -162,6 +161,7 @@ class ReactInput extends Component {
                 {...this.props}
             >
                 <input
+                    style={{boxSizing:"border-box"}}
                     type={this.props.issearch?"text":this.state.type}
                     name={this.props.name}
                     autoComplete="new-password"
