@@ -51,7 +51,3 @@ allcss | String | "" | 完整的css代码 字符串
 1、name 是 input name值
 
 2、value 是 ""
-
-## keywords
- 
-react 

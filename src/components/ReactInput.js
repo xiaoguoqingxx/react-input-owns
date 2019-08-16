@@ -15,6 +15,7 @@ const Inputcss = styled.div`
     ${outer}
     input{
         width:100%;
+        box-sizing:border-box;
         padding-right:${(props) =>{
             if(props.issearch){
                 return "20px"
