@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import '../css/font.css';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-let color={
-    "blue":"#1D82FE",
-    "purple": "#E44CF9",
-    "green": "#11BE73"
-};
+import { color, initcolor } from '../config';
 const outer = css`${props => props.allcss}`;
 const Inputcss = styled.div`
     width:${props => typeof props.width === "number" ? props.width + "px" : props.width};
@@ -176,13 +172,13 @@ class ReactInput extends Component {
         this.setState({
             value: value
         });
-        this.props.onChange && this.props.onChange(this.props.name,value)
+        this.props.changeContent && this.props.changeContent(this.props.name,value)
     }
     handleFocus(){
         this.setState({
             showcha: true
         })
-        this.props.onFocus && this.props.onFocus(this.props.name,"")
+        this.props.focusContent && this.props.focusContent(this.props.name,"")
     }
     clickClear(){
         let type="";
@@ -195,7 +191,7 @@ class ReactInput extends Component {
         },()=>{
             
         });
-        this.props.onChange && this.props.onChange(this.props.name,"")
+        this.props.changeContent && this.props.changeContent(this.props.name,"")
     }
     changeType(str) {
         this.setState({
@@ -247,7 +243,7 @@ ReactInput.defaultProps = {
     height: 30,//数字 
     borderradius: 2,//数字 单位像素
     borderwidth: 1,//数字 单位像素
-    bordercolor: "#1D82FE",//字符串 16进制的 或者rgb值
+    bordercolor: initcolor,//字符串 16进制的 或者rgb值
     boxshadow: "none",//完整的box-shadow 样式 字符串
     background:"transparent",//字符串 16进制的 或者rgb值 或者完整的background
     fontsize:14,//数字
@@ -259,8 +255,8 @@ ReactInput.defaultProps = {
     fontcolor:"#333",
     refresh: false,//是否刷新state bool值
     haseye:false,
-    eyecolor:"#1D82FE",
-    iconcolor: "#1D82FE",
+    eyecolor:initcolor,
+    iconcolor: initcolor,
     activeboxshadow:"none",
     pattern:null,//外部正则
 };
