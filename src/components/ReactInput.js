@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import '../css/font.css';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+let color={
+    "blue":"#1D82FE",
+    "purple": "#E44CF9",
+    "green": "#11BE73"
+};
 const outer = css`${props => props.allcss}`;
 const Inputcss = styled.div`
-    width:${props => props.width +"px"};
-    height:${props => props.height + "px"};
+    width:${props => typeof props.width === "number" ? props.width + "px" : props.width};
+    height:${props => typeof props.height === "number" ? props.height + "px" : props.height};
     position:relative;
     ${outer}
     input{
@@ -27,9 +32,15 @@ const Inputcss = styled.div`
         padding-left:10px;
         height:100%;
         position:relative;
-        border:${props => props.borderwidth}px solid ${props => props.bordercolor};
+        border:${props => props.borderwidth}px solid ${props => {
+            if (props.usetheme) {
+                return color[props.theme] || props.bordercolor
+            } else {
+                return props.bordercolor
+            }
+        }};
         background:${props => props.background};
-        font-size:${props => props.fontsize+"px"};
+        font-size:${props => typeof props.fontsize === "number" ? props.fontsize + "px" : props.fontsize};
         color:${props => props.fontcolor};
         box-shadow:${props => props.boxshadow}
         transition:all 0.2s;
@@ -38,7 +49,22 @@ const Inputcss = styled.div`
         }
     }
     span{
-        color:${props => props.iconcolor}
+        color:${props => {
+            if (props.usetheme) {
+                return color[props.theme] || props.iconcolor
+            } else {
+                return props.iconcolor
+            }
+        }}
+        &:before{
+            color:${props => {
+                if (props.usetheme) {
+                    return color[props.theme] || props.iconcolor
+                } else {
+                    return props.iconcolor
+                }
+            }}
+        }
     }
     .cha{
         position:absolute;
@@ -149,7 +175,7 @@ class ReactInput extends Component {
                     <span className="cha icon-cha" onClick={this.clickClear.bind(this)}></span>
                 }
                 {
-                    !this.props.issearch &&this.props.haseye && this.state.value !== "" &&
+                    !this.props.issearch && this.props.type==="password" && this.props.haseye && this.state.value !== "" &&
                     (this.state.type==="text" ?
                     <span className="yanclose icon-yanclose" onClick={this.changeType.bind(this,"password")}></span> :
                     <span className="yan icon-yan" onClick={this.changeType.bind(this, "text")}></span>)
@@ -164,6 +190,7 @@ class ReactInput extends Component {
 }
 ReactInput.defaultProps = {
     issearch:false,//是否是直接输入就搜索的框
+    usetheme:false,//是否使用主题
     type: "text",//表单类型
     defaultValue: "",//默认值字符串
     theme: "blue",//blue 蓝色 purple 紫色 green 绿色
@@ -171,7 +198,7 @@ ReactInput.defaultProps = {
     height: 30,//数字 
     borderradius: 2,//数字 单位像素
     borderwidth: 1,//数字 单位像素
-    bordercolor: "#1890FF",//字符串 16进制的 或者rgb值
+    bordercolor: "#1D82FE",//字符串 16进制的 或者rgb值
     boxshadow: "none",//完整的box-shadow 样式 字符串
     background:"transparent",//字符串 16进制的 或者rgb值 或者完整的background
     fontsize:14,//数字
@@ -183,26 +210,36 @@ ReactInput.defaultProps = {
     fontcolor:"#333",
     refresh: false,//是否刷新state bool值
     haseye:false,
-    iconcolor: "#1890FF",
+    iconcolor: "#1D82FE",
     activeboxshadow:"none",
     pattern:null,//外部正则
 };
 ReactInput.propTypes={
     issearch: PropTypes.bool,
+    usetheme: PropTypes.bool,
     type: PropTypes.string,
     defaultValue: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
     ]),
     theme: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
+    width: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    height: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     borderradius: PropTypes.number,
     borderwidth: PropTypes.number,
     bordercolor: PropTypes.string,
     boxshadow: PropTypes.string,
     background: PropTypes.string,
-    fontsize: PropTypes.number,
+    fontsize: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     allcss: PropTypes.string,
     readonly: PropTypes.bool,
     placeholder: PropTypes.string,

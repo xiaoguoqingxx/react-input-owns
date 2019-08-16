@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['', ''], ['', '']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    width:', ';\n    height:', ';\n    position:relative;\n    ', '\n    input{\n        width:100%;\n        padding-right:', ';\n        outline:none;\n        padding-left:10px;\n        height:100%;\n        position:relative;\n        border:', 'px solid ', ';\n        background:', ';\n        font-size:', ';\n        color:', ';\n        box-shadow:', '\n        transition:all 0.2s;\n        &:focus{\n            box-shadow:', '\n        }\n    }\n    span{\n        color:', '\n    }\n    .cha{\n        position:absolute;\n        right:4px;\n        top:50%;\n        z-index:10;\n        margin-top:-7px;\n        cursor:pointer;\n        font-size:14px;\n    }\n    .yan{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .yanclose{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .search{\n        position: absolute;\n        font-size:16px;\n        right: 2px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -8px;\n        cursor: pointer;\n    }\n'], ['\n    width:', ';\n    height:', ';\n    position:relative;\n    ', '\n    input{\n        width:100%;\n        padding-right:', ';\n        outline:none;\n        padding-left:10px;\n        height:100%;\n        position:relative;\n        border:', 'px solid ', ';\n        background:', ';\n        font-size:', ';\n        color:', ';\n        box-shadow:', '\n        transition:all 0.2s;\n        &:focus{\n            box-shadow:', '\n        }\n    }\n    span{\n        color:', '\n    }\n    .cha{\n        position:absolute;\n        right:4px;\n        top:50%;\n        z-index:10;\n        margin-top:-7px;\n        cursor:pointer;\n        font-size:14px;\n    }\n    .yan{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .yanclose{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .search{\n        position: absolute;\n        font-size:16px;\n        right: 2px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -8px;\n        cursor: pointer;\n    }\n']);
+    _templateObject2 = _taggedTemplateLiteral(['\n    width:', ';\n    height:', ';\n    position:relative;\n    ', '\n    input{\n        width:100%;\n        padding-right:', ';\n        outline:none;\n        padding-left:10px;\n        height:100%;\n        position:relative;\n        border:', 'px solid ', ';\n        background:', ';\n        font-size:', ';\n        color:', ';\n        box-shadow:', '\n        transition:all 0.2s;\n        &:focus{\n            box-shadow:', '\n        }\n    }\n    span{\n        color:', '\n        &:before{\n            color:', '\n        }\n    }\n    .cha{\n        position:absolute;\n        right:4px;\n        top:50%;\n        z-index:10;\n        margin-top:-7px;\n        cursor:pointer;\n        font-size:14px;\n    }\n    .yan{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .yanclose{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .search{\n        position: absolute;\n        font-size:16px;\n        right: 2px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -8px;\n        cursor: pointer;\n    }\n'], ['\n    width:', ';\n    height:', ';\n    position:relative;\n    ', '\n    input{\n        width:100%;\n        padding-right:', ';\n        outline:none;\n        padding-left:10px;\n        height:100%;\n        position:relative;\n        border:', 'px solid ', ';\n        background:', ';\n        font-size:', ';\n        color:', ';\n        box-shadow:', '\n        transition:all 0.2s;\n        &:focus{\n            box-shadow:', '\n        }\n    }\n    span{\n        color:', '\n        &:before{\n            color:', '\n        }\n    }\n    .cha{\n        position:absolute;\n        right:4px;\n        top:50%;\n        z-index:10;\n        margin-top:-7px;\n        cursor:pointer;\n        font-size:14px;\n    }\n    .yan{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .yanclose{\n        position: absolute;\n        font-size:18px;\n        right: 24px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -9px;\n        cursor: pointer;\n    }\n    .search{\n        position: absolute;\n        font-size:16px;\n        right: 2px;\n        top: 50%;\n        z-index: 40;\n        margin-top: -8px;\n        cursor: pointer;\n    }\n']);
 
 var _react = require('react');
 
@@ -33,13 +33,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
+var color = {
+    "blue": "#1D82FE",
+    "purple": "#E44CF9",
+    "green": "#11BE73"
+};
 var outer = (0, _styledComponents.css)(_templateObject, function (props) {
     return props.allcss;
 });
 var Inputcss = _styledComponents2.default.div(_templateObject2, function (props) {
-    return props.width + "px";
+    return typeof props.width === "number" ? props.width + "px" : props.width;
 }, function (props) {
-    return props.height + "px";
+    return typeof props.height === "number" ? props.height + "px" : props.height;
 }, outer, function (props) {
     if (props.issearch) {
         return "20px";
@@ -55,11 +60,15 @@ var Inputcss = _styledComponents2.default.div(_templateObject2, function (props)
 }, function (props) {
     return props.borderwidth;
 }, function (props) {
-    return props.bordercolor;
+    if (props.usetheme) {
+        return color[props.theme] || props.bordercolor;
+    } else {
+        return props.bordercolor;
+    }
 }, function (props) {
     return props.background;
 }, function (props) {
-    return props.fontsize + "px";
+    return typeof props.fontsize === "number" ? props.fontsize + "px" : props.fontsize;
 }, function (props) {
     return props.fontcolor;
 }, function (props) {
@@ -67,7 +76,17 @@ var Inputcss = _styledComponents2.default.div(_templateObject2, function (props)
 }, function (props) {
     return props.activeboxshadow;
 }, function (props) {
-    return props.iconcolor;
+    if (props.usetheme) {
+        return color[props.theme] || props.iconcolor;
+    } else {
+        return props.iconcolor;
+    }
+}, function (props) {
+    if (props.usetheme) {
+        return color[props.theme] || props.iconcolor;
+    } else {
+        return props.iconcolor;
+    }
 });
 
 var ReactInput = function (_Component) {
@@ -154,7 +173,7 @@ var ReactInput = function (_Component) {
                     onFocus: this.handleFocus.bind(this)
                 }),
                 !this.props.issearch && this.state.showcha && this.state.value !== "" && _react2.default.createElement('span', { className: 'cha icon-cha', onClick: this.clickClear.bind(this) }),
-                !this.props.issearch && this.props.haseye && this.state.value !== "" && (this.state.type === "text" ? _react2.default.createElement('span', { className: 'yanclose icon-yanclose', onClick: this.changeType.bind(this, "password") }) : _react2.default.createElement('span', { className: 'yan icon-yan', onClick: this.changeType.bind(this, "text") })),
+                !this.props.issearch && this.props.type === "password" && this.props.haseye && this.state.value !== "" && (this.state.type === "text" ? _react2.default.createElement('span', { className: 'yanclose icon-yanclose', onClick: this.changeType.bind(this, "password") }) : _react2.default.createElement('span', { className: 'yan icon-yan', onClick: this.changeType.bind(this, "text") })),
                 this.props.issearch && _react2.default.createElement('span', { className: 'search icon-search' })
             );
         }
@@ -165,6 +184,7 @@ var ReactInput = function (_Component) {
 
 ReactInput.defaultProps = {
     issearch: false, //是否是直接输入就搜索的框
+    usetheme: false, //是否使用主题
     type: "text", //表单类型
     defaultValue: "", //默认值字符串
     theme: "blue", //blue 蓝色 purple 紫色 green 绿色
@@ -172,7 +192,7 @@ ReactInput.defaultProps = {
     height: 30, //数字 
     borderradius: 2, //数字 单位像素
     borderwidth: 1, //数字 单位像素
-    bordercolor: "#1890FF", //字符串 16进制的 或者rgb值
+    bordercolor: "#1D82FE", //字符串 16进制的 或者rgb值
     boxshadow: "none", //完整的box-shadow 样式 字符串
     background: "transparent", //字符串 16进制的 或者rgb值 或者完整的background
     fontsize: 14, //数字
@@ -184,23 +204,24 @@ ReactInput.defaultProps = {
     fontcolor: "#333",
     refresh: false, //是否刷新state bool值
     haseye: false,
-    iconcolor: "#1890FF",
+    iconcolor: "#1D82FE",
     activeboxshadow: "none",
     pattern: null //外部正则
 };
 ReactInput.propTypes = {
     issearch: _propTypes2.default.bool,
+    usetheme: _propTypes2.default.bool,
     type: _propTypes2.default.string,
     defaultValue: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
     theme: _propTypes2.default.string,
-    width: _propTypes2.default.number,
-    height: _propTypes2.default.number,
+    width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+    height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
     borderradius: _propTypes2.default.number,
     borderwidth: _propTypes2.default.number,
     bordercolor: _propTypes2.default.string,
     boxshadow: _propTypes2.default.string,
     background: _propTypes2.default.string,
-    fontsize: _propTypes2.default.number,
+    fontsize: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
     allcss: _propTypes2.default.string,
     readonly: _propTypes2.default.bool,
     placeholder: _propTypes2.default.string,
