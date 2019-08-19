@@ -38,7 +38,7 @@ const Pagecss = styled.div`
     }
     .every{
         margin-left:10px;
-        color:${props => props.otherColor}
+        color:${props => props.otherColor};
         font-size: ${props => typeof props.otherFontSize === "number" ? props.otherFontSize + "px" : props.otherFontSize};    
         #everyxia{
             display: inline-block;
@@ -62,7 +62,7 @@ const Pagecss = styled.div`
                 padding-left: 10px;
                 position: relative;
                 cursor: pointer;
-                color:${props => props.slideColor}
+                color:${props => props.slideColor};
                 transition:all 0.2s;
                 i{
                     position: absolute;
@@ -155,7 +155,7 @@ const Pagecss = styled.div`
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
-        color:${props => props.buttonFontColor}
+        color:${props => props.buttonFontColor};
         &:hover{
             transition: all 0.1s;
             background:${props => {
