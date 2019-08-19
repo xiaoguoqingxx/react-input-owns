@@ -1,9 +1,14 @@
 {
     "name": "react-input-owns",
-    "version": "1.1.10",
+    "version": "2.0.0",
     "description": "",
     "main": "dist/index.js",
-    "keywords":["react","lodash","input","page"],
+    "keywords": [
+        "react",
+        "lodash",
+        "input",
+        "page"
+    ],
     "scripts": {
         "transpile": "babel src -d dist --copy-files",
         "start": "webpack-dev-server --mode development",
