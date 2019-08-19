@@ -16,10 +16,9 @@
         "build": "webpack --mode production",
         "deploy": "gh-pages -d examples/dist",
         "publish-demo": "npm run build && npm run deploy",
-        "smallvision": "npm version patch",
-        "midvision": "npm version minor",
-        "bigvision": "npm version major",
-        "npm-publish": "npm publish"
+        "smallvision-publish": "npm version patch && npm publish",
+        "midvision-publish": "npm version minor && npm publish",
+        "bigvision-publish": "npm version major && npm publish"
     },
     "author": "ambercloud",
     "license": "ISC",
