@@ -10,7 +10,11 @@
         "prepublishOnly": "npm run transpile",
         "build": "webpack --mode production",
         "deploy": "gh-pages -d examples/dist",
-        "publish-demo": "npm run build && npm run deploy"
+        "publish-demo": "npm run build && npm run deploy",
+        "smallvision": "npm version patch",
+        "midvision": "npm version minor",
+        "bigvision": "npm version major",
+        "npm-publish": "npm publish"
     },
     "author": "ambercloud",
     "license": "ISC",
