@@ -5,6 +5,7 @@ import { TweenMax, Linear } from 'gsap';
 import _ from "lodash";
 import PropTypes from 'prop-types';
 import { color, initcolor } from '../config';
+import { CheckIsColor } from '../common/trans';
 const outer = css`${props => props.allcss}`;
 const Pagecss = styled.div`
     text-align: center;
@@ -22,7 +23,11 @@ const Pagecss = styled.div`
         .active {
             background:${props => {
                 if (props.usetheme) {
-                    return color[props.theme] || props.allActiveBgcolor
+                    if (CheckIsColor(props.theme)){
+                        return props.theme
+                    }else{
+                        return color[props.theme] || props.allActiveBgcolor
+                    }
                 } else {
                     return props.allActiveBgcolor
                 }
@@ -47,7 +52,11 @@ const Pagecss = styled.div`
             height:${props => typeof props.allHeight === "number" ? props.allHeight + "px" : props.allHeight};
             border:${props => props.allBorderWidth}px solid ${props => {
                 if (props.usetheme) {
-                    return color[props.theme] || props.allBorderColor
+                    if (CheckIsColor(props.theme)) {
+                        return props.theme
+                    } else {
+                        return color[props.theme] || props.allBorderColor
+                    }
                 } else {
                     return props.allBorderColor
                 }
@@ -75,7 +84,11 @@ const Pagecss = styled.div`
             .active{
                 background:${props => {
                     if (props.usetheme) {
-                        return color[props.theme] || props.allActiveBgcolor
+                        if (CheckIsColor(props.theme)) {
+                            return props.theme
+                        } else {
+                            return color[props.theme] || props.allActiveBgcolor
+                        }
                     } else {
                         return props.allActiveBgcolor
                     }
@@ -91,7 +104,11 @@ const Pagecss = styled.div`
             top:21px;
             border:${props => props.allBorderWidth}px solid ${props => {
                 if (props.usetheme) {
-                    return color[props.theme] || props.allBorderColor
+                    if (CheckIsColor(props.theme)) {
+                        return props.theme
+                    } else {
+                        return color[props.theme] || props.allBorderColor
+                    }
                 } else {
                     return props.allBorderColor
                 }
@@ -105,7 +122,11 @@ const Pagecss = styled.div`
                 &:hover{
                     background:${props => {
                         if (props.usetheme) {
-                            return color[props.theme] || props.allActiveBgcolor
+                            if (CheckIsColor(props.theme)) {
+                                return props.theme
+                            } else {
+                                return color[props.theme] || props.allActiveBgcolor
+                            }
                         } else {
                             return props.allActiveBgcolor
                         }
@@ -121,7 +142,11 @@ const Pagecss = styled.div`
             height:${props => typeof props.allHeight === "number" ? props.allHeight+2 + "px" : props.allHeight+2};
             border:${props => props.allBorderWidth}px solid ${props => {
                 if (props.usetheme) {
-                    return color[props.theme] || props.allBorderColor
+                    if (CheckIsColor(props.theme)) {
+                        return props.theme
+                    } else {
+                        return color[props.theme] || props.allBorderColor
+                    }
                 } else {
                     return props.allBorderColor
                 }
@@ -141,7 +166,11 @@ const Pagecss = styled.div`
         height:${props => typeof props.allHeight === "number" ? props.allHeight + "px" : props.allHeight};
         border:${props => props.allBorderWidth}px solid ${props => {
             if (props.usetheme) {
-                return color[props.theme] || props.allBorderColor
+                if (CheckIsColor(props.theme)) {
+                    return props.theme
+                } else {
+                    return color[props.theme] || props.allBorderColor
+                }
             } else {
                 return props.allBorderColor
             }
@@ -160,7 +189,11 @@ const Pagecss = styled.div`
             transition: all 0.1s;
             background:${props => {
                 if (props.usetheme) {
-                    return color[props.theme] || props.allActiveBgcolor
+                    if (CheckIsColor(props.theme)) {
+                        return props.theme
+                    } else {
+                        return color[props.theme] || props.allActiveBgcolor
+                    }
                 } else {
                     return props.allActiveBgcolor
                 }

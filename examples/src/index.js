@@ -16,10 +16,10 @@ const App = () => {
     }
     return (
         <React.Fragment>
-            <ReactInput focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} /> 
+            <ReactInput usetheme theme="#ff0000" type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} /> 
             <Page
-                // usetheme
-                // theme="green"
+                usetheme
+                theme="#ff0000"
                 allNumber
                 jumpNumber
                 selectNumber

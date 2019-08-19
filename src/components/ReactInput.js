@@ -3,6 +3,7 @@ import '../css/font.css';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { color, initcolor } from '../config';
+import { CheckIsColor } from '../common/trans';
 const outer = css`${props => props.allcss}`;
 const Inputcss = styled.div`
     width:${props => typeof props.width === "number" ? props.width + "px" : props.width};
@@ -32,7 +33,11 @@ const Inputcss = styled.div`
         border-radius:${props => props.borderradius}px;
         border:${props => props.borderwidth}px solid ${props => {
             if (props.usetheme) {
-                return color[props.theme] || props.bordercolor
+                if (CheckIsColor(props.theme)) {
+                    return props.theme
+                } else {
+                    return color[props.theme] || props.bordercolor
+                }
             } else {
                 return props.bordercolor
             }
@@ -56,7 +61,11 @@ const Inputcss = styled.div`
         font-size:14px;
         color:${props => {
             if (props.usetheme) {
-                return color[props.theme] || props.iconcolor
+                if (CheckIsColor(props.theme)) {
+                    return props.theme
+                } else {
+                    return color[props.theme] || props.iconcolor
+                }
             } else {
                 return props.iconcolor
             }
@@ -64,7 +73,11 @@ const Inputcss = styled.div`
         &:before{
             color:${props => {
                 if (props.usetheme) {
-                    return color[props.theme] || props.iconcolor
+                    if (CheckIsColor(props.theme)) {
+                        return props.theme
+                    } else {
+                        return color[props.theme] || props.iconcolor
+                    }
                 } else {
                     return props.iconcolor
                 }
@@ -81,7 +94,11 @@ const Inputcss = styled.div`
         cursor: pointer;
         color:${props => {
         if (props.usetheme) {
-            return color[props.theme] || props.eyecolor
+            if (CheckIsColor(props.theme)) {
+                return props.theme
+            } else {
+                return color[props.theme] || props.eyecolor
+            }
         } else {
             return props.eyecolor
         }
@@ -89,7 +106,11 @@ const Inputcss = styled.div`
         &:before{
             color:${props => {
         if (props.usetheme) {
-            return color[props.theme] || props.eyecolor
+            if (CheckIsColor(props.theme)) {
+                return props.theme
+            } else {
+                return color[props.theme] || props.eyecolor
+            }
         } else {
             return props.eyecolor
         }
@@ -106,7 +127,11 @@ const Inputcss = styled.div`
         cursor: pointer;
         color:${props => {
         if (props.usetheme) {
-            return color[props.theme] || props.eyecolor
+            if (CheckIsColor(props.theme)) {
+                return props.theme
+            } else {
+                return color[props.theme] || props.eyecolor
+            }
         } else {
             return props.eyecolor
         }
@@ -114,7 +139,11 @@ const Inputcss = styled.div`
         &:before{
             color:${props => {
         if (props.usetheme) {
-            return color[props.theme] || props.eyecolor
+            if (CheckIsColor(props.theme)) {
+                return props.theme
+            } else {
+                return color[props.theme] || props.eyecolor
+            }
         } else {
             return props.eyecolor
         }
@@ -131,7 +160,11 @@ const Inputcss = styled.div`
         cursor: pointer;
         color:${props => {
         if (props.usetheme) {
-            return color[props.theme] || props.iconcolor
+            if (CheckIsColor(props.theme)) {
+                return props.theme
+            } else {
+                return color[props.theme] || props.iconcolor
+            }
         } else {
             return props.iconcolor
         }
@@ -139,7 +172,11 @@ const Inputcss = styled.div`
         &:before{
             color:${props => {
         if (props.usetheme) {
-            return color[props.theme] || props.iconcolor
+            if (CheckIsColor(props.theme)) {
+                return props.theme
+            } else {
+                return color[props.theme] || props.iconcolor
+            }
         } else {
             return props.iconcolor
         }

@@ -22,7 +22,7 @@ width | String、Number | 200 | 输入框长度（数字默认单位：像素）
 height | String、Number | 30 | 输入框高度（数字默认单位：像素），字符串示例："30px"、"100%"、"2vw"
 issearch | Boolean | false | 是否要呈现搜索框
 usetheme | Boolean | false | 是否要使用主题 
-theme | String | blue | 主题名称，目前提供 blue、purple、green 三种可选值，使用主题后，以主题色为准
+theme | String | blue | 主题名称，目前提供 blue、purple、green 三种可选值，也可以传完整的16进制颜色和rgb值，使用主题后，以主题色为准
 name | String | "" | 表单name值
 type | String | text | 表单类型，目前在样式上提供 password、text 两种可选值
 defaultValue | String、Number | "" | 表单默认值、受控制input需要传值
@@ -67,7 +67,7 @@ allcss | String | "" | 完整的css代码 字符串
 name | 类型 | 默认值 | 描述 
 :-: | :-: | :-: | :-: 
 usetheme | Boolean | false | 是否要使用主题 
-theme | String | blue | 主题名称，目前提供 blue、purple、green 三种可选值，使用主题后，以主题色为准
+theme | String | blue | 主题名称，目前提供 blue、purple、green 三种可选值，也可以传完整的16进制颜色和rgb值，使用主题后，以主题色为准
 upDown | Boolean | true | 是否有上下页
 pageNumber | Boolean | true |  是否有页码list
 allNumber | Boolean | false | 是否有共多少页
