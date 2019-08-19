@@ -27,13 +27,13 @@ const Pagecss = styled.div`
                     return props.allActiveBgcolor
                 }
             }};
-            color:${props => props.allActiveFcolor}
+            color:${props => props.allActiveFcolor};
         }
     }
     .allnum,
     .jumpnum{
         margin:0 10px;
-        color:${props => props.otherColor}
+        color:${props => props.otherColor};
         font-size: ${props => typeof props.otherFontSize === "number" ? props.otherFontSize + "px" : props.otherFontSize};    
     }
     .every{
@@ -66,7 +66,7 @@ const Pagecss = styled.div`
                 transition:all 0.2s;
                 i{
                     position: absolute;
-                    color:${props => props.slideColor}
+                    color:${props => props.slideColor};
                     right:4px;
                     top:3px;
                 }
@@ -80,7 +80,7 @@ const Pagecss = styled.div`
                         return props.allActiveBgcolor
                     }
                 }};
-                color:${props => props.allActiveFcolor}
+                color:${props => props.allActiveFcolor};
             }
         }
         #e-xiala{
@@ -110,7 +110,7 @@ const Pagecss = styled.div`
                             return props.allActiveBgcolor
                         }
                     }};
-                    color:${props => props.allActiveFcolor}
+                    color:${props => props.allActiveFcolor};
                 }
             }
         }
@@ -118,7 +118,7 @@ const Pagecss = styled.div`
     .jumpnum
         input{
             width:${props => typeof props.inputWidth === "number" ? props.inputWidth + "px" : props.inputWidth};
-            height:${props => typeof props.allHeight === "number" ? props.allHeight + "px" : props.allHeight};
+            height:${props => typeof props.allHeight === "number" ? props.allHeight+2 + "px" : props.allHeight+2};
             border:${props => props.allBorderWidth}px solid ${props => {
                 if (props.usetheme) {
                     return color[props.theme] || props.allBorderColor
@@ -165,7 +165,7 @@ const Pagecss = styled.div`
                     return props.allActiveBgcolor
                 }
             }};
-            color:${props => props.allActiveFcolor}
+            color:${props => props.allActiveFcolor};
         }
         
     }
@@ -429,7 +429,7 @@ class Page extends Component {
                 
                 {controls.jumpNumber && forever.whatpage > 1 &&
                     <span className="jumpnum">
-                        跳到 <input type="text" name="page" value={nowpage} onChange={this.handleChange}/> 页
+                        跳到 <input type="text" style={{boxSizing: "border-box"}} name="page" value={nowpage} onChange={this.handleChange}/> 页
                     </span>
                 }
                 {
