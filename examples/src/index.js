@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import { render } from 'react-dom';
+import "./main.css";
 import { ReactInput, Page, Slide,Button} from '../../src';
 const App = () => {
     const [name,setName]= useState(1)
@@ -21,10 +22,10 @@ const App = () => {
     };
     return (
         <React.Fragment>
-            <ReactInput usetheme theme="#ff0000" type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} /> 
+            <ReactInput type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} /> 
             <Page
-                usetheme
-                theme="#ff0000"
+                // usetheme
+                // theme="#ff0000"
                 allNumber
                 jumpNumber
                 selectNumber
@@ -34,8 +35,8 @@ const App = () => {
                 changeEvery={(num)=>changeEvery(num)}
                 changeNumber={(page, all) => getPages(page, all)}
             />
-            <Slide usetheme theme="green" field="hollo" refresh value={name} doSelect={(value,name,field)=>doSelect(value,name,field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]}/>
-            <Button usetheme theme="green" doClick={()=>setName(2)} />
+            <Slide field="hollo" refresh value={name} doSelect={(value,name,field)=>doSelect(value,name,field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]}/>
+            <Button usetheme theme="var(--bgcolor)" doClick={()=>setName(2)} />
         </React.Fragment>
         
     )
