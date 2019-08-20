@@ -191,7 +191,7 @@ slideActiveFcolor | String | #fff | 下拉框选项选中时的字体色
 ## 引入方法与示例
 
 ```js
-import { ReactInput,Page } from 'react-input-owns';
+import { ReactInput,Page,Slide } from 'react-input-owns';
 
 <ReactInput />
 <Page
