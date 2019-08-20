@@ -187,11 +187,41 @@ slideActiveFcolor | String | #fff | 下拉框选项选中时的字体色
 
 `disturb(disturbinfo)` 当disturbinfo不为空的时候，点击打断下拉操作并将报错信息返回
 
+### 四、Button参数详解
+
+#### 1、需要传递的props参数如下：
+
+##### 基本属性
+
+name | 类型 | 默认值 | 描述 
+:-: | :-: | :-: | :-: 
+usetheme | Boolean | false | 是否要使用主题 
+theme | String | blue | 主题名称，目前提供 blue、purple、green 三种可选值，也可以传完整的16进制颜色和rgb值，使用主题后，以主题色为准
+name | String | 搜索 | 按钮里的字
+width | String、Number | 200 | 组件宽度
+height |  String、Number | 30 | 组件高度
+
+##### 样式属性
+
+name | 类型 | 默认值 | 描述 
+:-: | :-: | :-: | :-: 
+allcss | String | "" | 针对于该组件外层的css完整样式代码
+borderRadius | String、Number | 2 | 组件圆角
+borderWidth | Number | 1 | 组件中的边框宽度 （单位：像素）
+borderColor | String | #1D82FE | 组件的边框颜色
+background | String | #1D82FE | 组件主体背景
+fontSize | String、Number | 14 | 组件主体字体大小（字符串需要带单位，数字默认单位px）
+fontColor | String | #333 | 组件主体字体颜色
+cursor | String | pointer | 鼠标移到组件上的样式
+
+#### 2、需要传递的props方法如下：
+
+`doClick()` 点击事件回调
 
 ## 引入方法与示例
 
 ```js
-import { ReactInput,Page,Slide } from 'react-input-owns';
+import { ReactInput,Page,Slide,Button } from 'react-input-owns';
 
 <ReactInput />
 <Page
@@ -212,4 +242,5 @@ import { ReactInput,Page,Slide } from 'react-input-owns';
     field="hollo" 
     list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]}
 />
+<Button usetheme theme="green" doClick={()=>setName(2)} />
 ```

@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { render } from 'react-dom';
-import { ReactInput, Page, Slide} from '../../src';
+import { ReactInput, Page, Slide,Button} from '../../src';
 const App = () => {
     const [name,setName]= useState(1)
     let changes=(name,value)=>{
@@ -35,7 +35,7 @@ const App = () => {
                 changeNumber={(page, all) => getPages(page, all)}
             />
             <Slide usetheme theme="green" field="hollo" refresh value={name} doSelect={(value,name,field)=>doSelect(value,name,field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]}/>
-            <button onClick={()=>setName(2)}>点击</button>
+            <Button usetheme theme="green" doClick={()=>setName(2)} />
         </React.Fragment>
         
     )
