@@ -10,6 +10,7 @@ react-input-owns组件，我们提供三套颜色主题 blue、purple、green，
 
 三、Slide 单选下拉组件
 
+四、Button 按钮组件
 
 ## Install
 
