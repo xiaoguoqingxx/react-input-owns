@@ -30,7 +30,7 @@ const Inputcss = styled.div`
         padding-left:10px;
         height:100%;
         position:relative;
-        border-radius:${props => props.borderradius}px;
+        border-radius:${props => typeof props.borderradius === "number" ? props.borderradius + "px" : props.borderradius};
         border:${props => props.borderwidth}px solid ${props => {
             if (props.usetheme) {
                 if (CheckIsColor(props.theme)) {
@@ -314,7 +314,10 @@ ReactInput.propTypes={
         PropTypes.string,
         PropTypes.number
     ]),
-    borderradius: PropTypes.number,
+    borderradius: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     borderwidth: PropTypes.number,
     bordercolor: PropTypes.string,
     boxshadow: PropTypes.string,
@@ -333,6 +336,7 @@ ReactInput.propTypes={
     haseye: PropTypes.bool,
     iconcolor: PropTypes.string,
     eyecolor: PropTypes.string,
-    pattern: PropTypes.object
+    pattern: PropTypes.object,
+    activeboxshadow: PropTypes.string
 };
 export default ReactInput;

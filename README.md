@@ -1,12 +1,15 @@
 # react-input-owns
 
-react-input-owns组件，包括以下几种组件
+react-input-owns组件，我们提供三套颜色主题 blue、purple、green，可以通过给theme属性传完整的16进制颜色和rgb值自定义主题色
+
+包括以下几种组件
 
 一、ReactInput 输入框组件
 
 二、Page 分页组件
 
-我们提供三套颜色主题 blue、purple、green
+三、Slide 单选下拉组件
+
 
 ## Install
 
@@ -116,6 +119,75 @@ slideColor | String | #333 | 下拉框字体颜色
 1、value 是每页显示个数
 
 
+### 三、Slide参数详解
+
+#### 1、需要传递的props参数如下：
+
+##### 基本属性
+
+name | 类型 | 默认值 | 描述 
+:-: | :-: | :-: | :-: 
+usetheme | Boolean | false | 是否要使用主题 
+theme | String | blue | 主题名称，目前提供 blue、purple、green 三种可选值，也可以传完整的16进制颜色和rgb值，使用主题后，以主题色为准
+value | String、Number | "" | 没有传空
+list | Array | [] |  下拉列表选项。注意这里要求必须有id和name两个字段
+width | String、Number | 200 | 组件宽度
+height |  String、Number | 30 | 组件高度
+field | String | "" | 当有表单时该下拉的字段名称
+refresh | Boolean | false | 是否实时更新state
+notEmpty | Boolean | false | 是否该字段不能为空（有没有八叉图表）
+disturbInfo | String | "" | 打断下拉操作的信息
+
+##### 样式属性
+
+name | 类型 | 默认值 | 描述 
+:-: | :-: | :-: | :-: 
+allcss | String | "" | 针对于该组件外层的css完整样式代码
+borderRadius | String、Number | 2 | 组件圆角
+borderWidth | Number | 1 | 组件中的边框宽度 （单位：像素）
+borderColor | String | #1D82FE | 组件的边框颜色
+background | String | transparent | 组件主体背景
+fontSize | String、Number | 14 | 组件主体字体大小（字符串需要带单位，数字默认单位px）
+fontColor | String | #333 | 组件主体字体颜色
+fontPlaceholderColor | String | #757575 | 组件主体类似placeholder字体颜色
+placeholder | String | 请选择一项 | 类似input的placeholder
+iconColor | String | #1D82FE | × 按钮的颜色
+iconSize | String、Number | 14 | × 按钮的字体大小
+triangleColor | String | #333 | ↓下拉按钮的颜色
+triangleSize | String、Number | 12 | ↓下拉按钮的字体大小（字符串需要带单位，数字默认单位px）
+
+##### 下拉框样式属性
+
+name | 类型 | 默认值 | 描述 
+:-: | :-: | :-: | :-: 
+slideDirection | String | down | 上拉还是下拉 提供 up和down两种可选值
+slideOptionHeight | String、Number | 25 | 下拉每个选项的高度
+slideOptionNumber | Number | 7 | 下拉一屏展示多少个选项
+slideBackground | String | #fff | 下拉背景色
+slideBorderWidth | Number | 1 | 下拉框边框宽度
+slideBorderColor | String | #1D82FE | 下拉框边框颜色
+slideBoxShadow | String | none | 下拉框阴影
+slideFontSize | String、Number | 12 | 下拉框选项字体颜色
+slideActiveBgcolor | String | #1D82FE | 下拉框选项选中时的背景色
+slideActiveFcolor | String | #fff | 下拉框选项选中时的字体色
+
+#### 2、需要传递的props方法如下：
+
+`doSelect(value, name,field)` 改变当前选项
+
+1、value 是选中那条数据的id
+
+2、name 是选中那条数据的name
+
+2、field 是字段名
+
+`focus(field)` 用于取消报错
+
+1、field 是字段名
+
+`disturb(disturbinfo)` 当disturbinfo不为空的时候，点击打断下拉操作并将报错信息返回
+
+
 ## 引入方法与示例
 
 ```js
@@ -133,5 +205,11 @@ import { ReactInput,Page } from 'react-input-owns';
     everyPage={10}
     changeEvery={(num)=>changeEvery(num)}
     changeNumber={(page, all) => getPages(page, all)}
+/>
+<Slide 
+    usetheme 
+    theme="green" 
+    field="hollo" 
+    list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]}
 />
 ```
