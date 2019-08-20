@@ -226,8 +226,8 @@ class Slide extends Component {
         e.stopPropagation();
         let show=this.state.show;
         if (!show){
-            if (this.props.disturbinfo!==""){
-                return this.props.disturb && this.props.disturb(this.props.disturbinfo)
+            if (this.props.disturbInfo!==""){
+                return this.props.disturb && this.props.disturb(this.props.disturbInfo)
             }
             this.showDown();
             this.props.focus && this.props.focus(this.props.field)
