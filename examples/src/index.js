@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import { render } from 'react-dom';
 import "./main.css";
 import { ReactInput, Page, Slide,Button} from '../../src';
+
 const App = () => {
     const [name,setName]= useState(1)
     let changes=(name,value)=>{
@@ -36,7 +37,7 @@ const App = () => {
                 changeNumber={(page, all) => getPages(page, all)}
             />
             <Slide field="hollo" refresh value={name} doSelect={(value,name,field)=>doSelect(value,name,field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]}/>
-            <Button usetheme theme="var(--bgcolor)" doClick={()=>setName(2)} />
+            <Button icon={<span className="icon-cha"></span>} usetheme theme="var(--bgcolor)" doClick={()=>setName(2)} />
         </React.Fragment>
         
     )

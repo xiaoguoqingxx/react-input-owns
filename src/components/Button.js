@@ -8,6 +8,7 @@ import { color, initcolor } from '../config';
 import { CheckIsColor } from '../common/trans';
 import _ from "lodash";
 const outer = css`${props => props.allcss}`;
+const iconcss = css`${props => props.iconCss}`; 
 const Buttons = styled.div`
     ${props => props.width ? `width:${typeof props.width === "number" ? props.width - props.borderWidth * 2 + "px" : props.width};`:""};
     height:${props => typeof props.height === "number" ? props.height - props.borderWidth * 2 + "px" : props.height};
@@ -33,6 +34,22 @@ const Buttons = styled.div`
                 return props.borderColor
             }
         }};
+        i{
+            color:${props=>props.iconColor};
+            font-size:${props => typeof props.iconSize === "number" ? props.iconSize + "px" : props.iconSize};
+            margin-right:5px;
+            ${iconcss}
+        }
+        span{
+            color:${props => props.iconColor};
+            font-size:${props => typeof props.iconSize === "number" ? props.iconSize + "px" : props.iconSize};
+            margin-right:5px;
+            &:before{
+                color:${props => props.iconColor};
+                font-size:${props => typeof props.iconSize === "number" ? props.iconSize + "px" : props.iconSize};
+            }
+            ${iconcss}
+        }
         background: ${props => {
             if (props.usetheme) {
                 if (CheckIsColor(props.theme)) {
@@ -62,6 +79,10 @@ class Button extends Component {
              {...this.props}
             >
                 <button type={this.props.type?this.props.type:"button"} onClick={this.handleClick.bind(this)}>
+                    {
+                        this.props.icon!=="" &&
+                        this.props.icon
+                    }
                     {this.props.name}
                 </button>
             </Buttons>
@@ -81,7 +102,11 @@ Button.defaultProps = {
     background: initcolor,
     fontSize: 14,
     fontColor: "#fff",
-    cursor:"pointer"
+    cursor:"pointer",
+    icon:"",
+    iconSize:14,
+    iconColor:"#fff",
+    iconCss:""
 };
 Button.propTypes = {
     usetheme: PropTypes.bool,
@@ -110,5 +135,12 @@ Button.propTypes = {
     ]),
     fontColor: PropTypes.string,
     cursor: PropTypes.string,
+    iconSize: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    icon: PropTypes.element,
+    iconColor: PropTypes.string,
+    iconCss: PropTypes.string,
 };
 export default Button;
