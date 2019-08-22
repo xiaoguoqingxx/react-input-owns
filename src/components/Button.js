@@ -103,7 +103,7 @@ Button.defaultProps = {
     fontSize: 14,
     fontColor: "#fff",
     cursor:"pointer",
-    icon:"",
+    // icon:"",
     iconSize:14,
     iconColor:"#fff",
     iconCss:""
@@ -139,7 +139,7 @@ Button.propTypes = {
         PropTypes.string,
         PropTypes.number
     ]),
-    icon: PropTypes.element,
+    // icon: PropTypes.element,
     iconColor: PropTypes.string,
     iconCss: PropTypes.string,
 };
