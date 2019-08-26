@@ -17,3 +17,13 @@ export function CheckIsColor(bgVal) {
         return true;
     }
 }
+export function addOpacity(color,percent){
+    let number= parseInt(percent*255/100);
+    if (color.indexOf("var") === -1) {
+        let arr = color.split("#");
+        arr[1] = arr[1] + number.toString(16);
+        return arr.join("#")
+    } else{
+        return color
+    }
+}

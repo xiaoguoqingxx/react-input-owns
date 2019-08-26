@@ -5,7 +5,7 @@ import styled, {css} from 'styled-components';
 import { TweenMax, Linear } from 'gsap';
 import PropTypes from 'prop-types';
 import { color, initcolor } from '../config';
-import { CheckIsColor } from '../common/trans';
+import { CheckIsColor, addOpacity } from '../common/trans';
 import _ from "lodash";
 
 const outer = css`${props => props.allcss}`;
@@ -110,9 +110,9 @@ const Slidecss = styled.div.attrs(props => ({
         z-index:200;
         ${props => {
             return { 
-                "up":`bottom:${parseFloat(props.height) + 2}px;`, 
-                "down":`top:${parseFloat(props.height) + 2}px;` 
-            }[props.slideDirection]||`top:${parseFloat(props.height) + 2}px;`;
+                "up":`bottom:${parseFloat(props.height)}px;`, 
+                "down":`top:${parseFloat(props.height)}px;` 
+            }[props.slideDirection]||`top:${parseFloat(props.height)}px;`;
         }}
         div{
             .xiala-cube{
@@ -138,15 +138,15 @@ const Slidecss = styled.div.attrs(props => ({
                     color:var(--fontcolor)
                 }
                 &:hover{
-                    background: ${props => {
+                     background: ${props => {
                         if (props.usetheme) {
                             if (CheckIsColor(props.theme)) {
-                                return props.theme
+                                return addOpacity(props.theme, props.slideActiveOpacity)
                             } else {
-                                return color[props.theme] || props.slideActiveBgcolor
+                                return color[props.theme] ? addOpacity(color[props.theme], props.slideActiveOpacity) : addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                             }
                         } else {
-                            return props.slideActiveBgcolor
+                            return addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                         }
                     }};
                     color:${props => props.slideActiveFcolor};
@@ -158,12 +158,12 @@ const Slidecss = styled.div.attrs(props => ({
                 background: ${props => {
                     if (props.usetheme) {
                         if (CheckIsColor(props.theme)) {
-                            return props.theme
+                            return addOpacity(props.theme, props.slideActiveOpacity)
                         } else {
-                            return color[props.theme] || props.slideActiveBgcolor
+                            return color[props.theme] ? addOpacity(color[props.theme], props.slideActiveOpacity) : addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                         }
                     } else {
-                        return props.slideActiveBgcolor
+                        return addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                     }
                 }};
             }
@@ -358,7 +358,7 @@ Slide.defaultProps = {
 
     background: "transparent",
     fontSize: 14,
-    fontColor: "#333", 
+    fontColor: "#333333", 
     fontPlaceholderColor: "#757575",
     placeholder: "请选择一项",
     iconColor: initcolor,
@@ -369,13 +369,14 @@ Slide.defaultProps = {
     slideDirection:"down",
     slideOptionHeight:25,
     slideOptionNumber: 7,
-    slideBackground:"#fff",
+    slideBackground:"#ffffff",
     slideBorderWidth:1,
     slideBorderColor: initcolor,
     slideBoxShadow: "none",
     slideFontSize:12,
     slideActiveBgcolor: initcolor,
-    slideActiveFcolor: "#fff",
+    slideActiveFcolor: "#333333",
+    slideActiveOpacity: 20,
 };
 Slide.propTypes = {
     usetheme: PropTypes.bool,
@@ -438,5 +439,6 @@ Slide.propTypes = {
     ]),
     slideActiveBgcolor: PropTypes.string,
     slideActiveFcolor: PropTypes.string,
+    slideActiveOpacity: PropTypes.number
 };
 export default Slide;
