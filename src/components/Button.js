@@ -22,7 +22,7 @@ const Buttons = styled.div`
         align-items: center;
         outline:none;
         height:100%;
-        box-shadow:${props => props.boxShadow}
+        box-shadow:${props => props.boxShadow};
         border-radius:${props => typeof props.borderRadius === "number" ? props.borderRadius + "px" : props.borderRadius};
         border: ${props => props.borderWidth}px solid ${props => {
             if (props.usetheme) {
