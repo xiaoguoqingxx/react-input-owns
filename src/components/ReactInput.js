@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 import { color, initcolor } from '../config';
 import { CheckIsColor } from '../common/trans';
 const outer = css`${props => props.allcss}`;
+const inner = css`${props => props.incss}`;
 const Inputcss = styled.div`
     width:${props => typeof props.width === "number" ? props.width + "px" : props.width};
     height:${props => typeof props.height === "number" ? props.height + "px" : props.height};
@@ -50,6 +51,7 @@ const Inputcss = styled.div`
         &:focus{
             box-shadow:${props => props.activeboxshadow}
         }
+        ${inner}
     }
     .cha{
         position:absolute;
@@ -285,6 +287,7 @@ ReactInput.defaultProps = {
     background:"transparent",//字符串 16进制的 或者rgb值 或者完整的background
     fontsize:14,//数字
     allcss: "",//字符串类型的css 代码
+    incss: "",//字符串类型的css 代码
     readonly:false,//是否可读 bool值
     placeholder: "请输入内容",//字符串
     maxlength: 200,//数字 最大长度
@@ -327,6 +330,7 @@ ReactInput.propTypes={
         PropTypes.number
     ]),
     allcss: PropTypes.string,
+    incss: PropTypes.string,
     readonly: PropTypes.bool,
     placeholder: PropTypes.string,
     maxlength: PropTypes.number,
