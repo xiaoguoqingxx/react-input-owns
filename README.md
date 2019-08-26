@@ -47,6 +47,11 @@ haseye | Boolean | false | 当type是password时有效 设置要不要眼睛
 eyecolor | String | #1890FF | 输入框里眼睛图标的颜色，16进制、rgb值、或者其他颜色设置
 pattern | Object | null | 正则
 allcss | String | "" | 完整的css代码 字符串
+incss | String | "" | 完整的css代码 给input框设置
+iconsize | Number、String | 14 | ×图标字体大小
+eyesize | Number、String | 18 | 眼睛图标字体大小
+searchsize | Number、String | 16 | 搜索图标字体大小
+
 
 #### 2、需要传递的props方法如下表：
 
