@@ -219,7 +219,7 @@ background | String | #1D82FE | 组件主体背景
 fontSize | String、Number | 14 | 组件主体字体大小（字符串需要带单位，数字默认单位px）
 fontColor | String | #333 | 组件主体字体颜色
 cursor | String | pointer | 鼠标移到组件上的样式
-
+boxShadow | String | none | 完整的box-shadow样式
 #### 2、需要传递的props方法如下：
 
 `doClick()` 点击事件回调

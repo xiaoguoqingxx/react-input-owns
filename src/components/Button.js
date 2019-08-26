@@ -22,6 +22,7 @@ const Buttons = styled.div`
         align-items: center;
         outline:none;
         height:100%;
+        box-shadow:${props => props.boxShadow}
         border-radius:${props => typeof props.borderRadius === "number" ? props.borderRadius + "px" : props.borderRadius};
         border: ${props => props.borderWidth}px solid ${props => {
             if (props.usetheme) {
@@ -106,12 +107,14 @@ Button.defaultProps = {
     // icon:"",
     iconSize:14,
     iconColor:"#fff",
-    iconCss:""
+    iconCss:"",
+    boxShadow:"none"
 };
 Button.propTypes = {
     usetheme: PropTypes.bool,
     theme: PropTypes.string,
     name: PropTypes.string,
+    boxShadow: PropTypes.string,
     width: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
