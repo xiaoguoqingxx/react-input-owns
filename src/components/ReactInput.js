@@ -60,7 +60,7 @@ const Inputcss = styled.div`
         z-index:10;
         margin-top:-7px;
         cursor:pointer;
-        font-size:14px;
+        font-size:${props => typeof props.iconsize === "number" ? props.iconsize + "px" : props.iconsize};
         color:${props => {
             if (props.usetheme) {
                 if (CheckIsColor(props.theme)) {
@@ -88,7 +88,7 @@ const Inputcss = styled.div`
     }
     .yan{
         position: absolute;
-        font-size:18px;
+        font-size:${props => typeof props.eyesize === "number" ? props.eyesize + "px" : props.eyesize};
         right: 24px;
         top: 50%;
         z-index: 40;
@@ -121,7 +121,7 @@ const Inputcss = styled.div`
     }
     .yanclose{
         position: absolute;
-        font-size:18px;
+        font-size:${props => typeof props.eyesize === "number" ? props.eyesize + "px" : props.eyesize};
         right: 24px;
         top: 50%;
         z-index: 40;
@@ -154,7 +154,7 @@ const Inputcss = styled.div`
     }
     .search{
         position: absolute;
-        font-size:16px;
+        font-size:${props => typeof props.searchsize === "number" ? props.searchsize + "px" : props.searchsize};
         right: 2px;
         top: 50%;
         z-index: 40;
@@ -299,6 +299,9 @@ ReactInput.defaultProps = {
     iconcolor: initcolor,
     activeboxshadow:"none",
     pattern:null,//外部正则
+    iconsize:14,
+    eyesize:18,
+    searchsize:16
 };
 ReactInput.propTypes={
     issearch: PropTypes.bool,
@@ -341,6 +344,18 @@ ReactInput.propTypes={
     iconcolor: PropTypes.string,
     eyecolor: PropTypes.string,
     pattern: PropTypes.object,
-    activeboxshadow: PropTypes.string
+    activeboxshadow: PropTypes.string,
+    iconsize: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    eyesize: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    searchsize: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ])
 };
 export default ReactInput;
