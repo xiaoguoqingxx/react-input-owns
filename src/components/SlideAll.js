@@ -345,7 +345,7 @@ class SlideAll extends Component {
                                         <span className="iconname">{val.name}</span>
                                         <span className="iconimg">{
                                             ((this.props.onlyid && this.state.select.includes(val.id)) || (!this.props.onlyid && this.state.select.findIndex(vals => vals.id === val.id))) &&
-                                           (this.props.signicon || <i class="fa fa-check" aria-hidden="true"></i>)
+                                            (this.props.signicon || <i className="fa fa-check" aria-hidden="true"></i>)
                                         }
                                         </span>
                                     </span>
