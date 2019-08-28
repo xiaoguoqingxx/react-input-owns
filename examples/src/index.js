@@ -1,10 +1,11 @@
 import React, { useState} from 'react';
 import { render } from 'react-dom';
 import "./main.css";
-import { ReactInput, Page, Slide, Button} from '../../src';
+import { ReactInput, Page, Slide, Button, SlideAll} from '../../src';
 
 const App = () => {
-    const [name,setName]= useState(1)
+    const [name,setName]= useState(1);
+    const [select, setSelect] = useState([]);
     let changes=(name,value)=>{
         
     };
@@ -21,8 +22,9 @@ const App = () => {
         setName(value)
         console.log("当前选择的是：",value,name) 
     };
-    const doSelectall = (value,field) => {
-        console.log("当前选择的是：", value)
+    const doSelectAll = (value,field) => {
+        setSelect(value)
+        console.log("当前多选择的是：", value)
     };
     return (
         <React.Fragment>
@@ -40,7 +42,7 @@ const App = () => {
                 changeNumber={(page, all) => getPages(page, all)}
             />
             <Slide field="hollo" refresh value={name} doSelect={(value, name, field) => doSelect(value, name, field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]} />
-            
+            <SlideAll field="hollos" refresh select={select} doSelect={(value,field) => doSelectAll(value, field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]} />
             <Button icon={<span className="icon-cha"></span>} usetheme theme="var(--bgcolor)" doClick={()=>setName(2)} />
         </React.Fragment>
         

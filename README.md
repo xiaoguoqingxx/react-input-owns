@@ -176,6 +176,7 @@ slideBoxShadow | String | none | 下拉框阴影
 slideFontSize | String、Number | 12 | 下拉框选项字体颜色
 slideActiveBgcolor | String | #1D82FE | 下拉框选项选中时的背景色
 slideActiveFcolor | String | #fff | 下拉框选项选中时的字体色
+slideActiveOpacity | Number | 20 | 拉框选项选中时的背景透明度 0-100
 
 #### 2、需要传递的props方法如下：
 
@@ -223,6 +224,10 @@ boxShadow | String | none | 完整的box-shadow样式
 #### 2、需要传递的props方法如下：
 
 `doClick()` 点击事件回调
+
+### 四、SlideAll参数详解
+
+参数与slide组件基本一致 不同的时候  value 变成 select  类型是数组
 
 ## 引入方法与示例
 
