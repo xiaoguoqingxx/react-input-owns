@@ -111,6 +111,11 @@ inputColor | String | #333 | 输入框字体颜色
 slideWidth | String、Number | 50 | 下拉框宽度（字符串需要带单位，数字默认单位px）
 slideBgcolor | String | #fff | 下拉框背景颜色
 slideColor | String | #333 | 下拉框字体颜色
+customSlide | Array |  [10,20,50,100] | 自定义下拉
+slideHeight | String、Number | #333 | 下拉框高
+slideActiveBgcolor | String | #1D82FE | 下拉框选项选中时的背景色
+slideActiveFcolor | String | #fff | 下拉框选项选中时的字体色
+slideActiveOpacity | Number | 20 | 拉框选项选中时的背景透明度 0-100
 
 #### 2、需要传递的props方法如下：
 

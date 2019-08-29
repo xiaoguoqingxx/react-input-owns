@@ -32,6 +32,8 @@ const App = () => {
             <Page
                 // usetheme
                 // theme="#ff0000"
+                customSlide={[8,10,20,50,100]}
+                slideActiveBgcolor="#7059ef"
                 allNumber
                 jumpNumber
                 selectNumber

@@ -5,7 +5,7 @@ import { TweenMax, Linear } from 'gsap';
 import _ from "lodash";
 import PropTypes from 'prop-types';
 import { color, initcolor } from '../config';
-import { CheckIsColor } from '../common/trans';
+import { CheckIsColor, addOpacity } from '../common/trans';
 const outer = css`${props => props.allcss}`;
 const Pagecss = styled.div`
     text-align: center;
@@ -65,8 +65,8 @@ const Pagecss = styled.div`
             position: relative;
             span {
                 display: block;
-                height: ${props => typeof props.allHeight === "number" ? props.allHeight + "px" : props.allHeight};
-                line-height: ${props => typeof props.allHeight === "number" ? props.allHeight + "px" : props.allHeight};
+                height: ${props => typeof props.slideHeight === "number" ? props.slideHeight + "px" : props.slideHeight};
+                line-height: ${props => typeof props.slideHeight === "number" ? props.slideHeight + "px" : props.slideHeight};
                 text-align: left;
                 padding-left: 10px;
                 position: relative;
@@ -85,15 +85,16 @@ const Pagecss = styled.div`
                 background:${props => {
                     if (props.usetheme) {
                         if (CheckIsColor(props.theme)) {
-                            return props.theme
+                            return addOpacity(props.theme, props.slideActiveOpacity)
                         } else {
-                            return color[props.theme] || props.allActiveBgcolor
+                            return color[props.theme] ? addOpacity(color[props.theme], props.slideActiveOpacity) : addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                         }
                     } else {
-                        return props.allActiveBgcolor
+                        return addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                     }
                 }};
-                color:${props => props.allActiveFcolor};
+                font-weight:600;
+                color:${props => props.slideActiveFcolor};
             }
         }
         #e-xiala{
@@ -123,15 +124,15 @@ const Pagecss = styled.div`
                     background:${props => {
                         if (props.usetheme) {
                             if (CheckIsColor(props.theme)) {
-                                return props.theme
+                                return addOpacity(props.theme, props.slideActiveOpacity)
                             } else {
-                                return color[props.theme] || props.allActiveBgcolor
+                                return color[props.theme] ? addOpacity(color[props.theme], props.slideActiveOpacity) : addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                             }
                         } else {
-                            return props.allActiveBgcolor
+                            return addOpacity(props.slideActiveBgcolor, props.slideActiveOpacity)
                         }
                     }};
-                    color:${props => props.allActiveFcolor};
+                    color:${props => props.slideActiveFcolor};
                 }
             }
         }
@@ -364,7 +365,7 @@ class Page extends Component {
         let dom = document.getElementsByClassName(`e-xiala${this.state.randomnum}`)[0].offsetHeight;
         if (dom === 2) {
             TweenMax.to(`.e-xiala${this.state.randomnum}`, 0.1, {
-                height:80,
+                height: this.props.customSlide.length * parseInt(this.props.slideHeight,10),
                 opacity: 1,
                 ease: Linear.easeIn
             })
@@ -472,10 +473,11 @@ class Page extends Component {
                         <span id="everyxia" className={`everyxia`}>
                             <span onClick={this.everyClick.bind(this)}>{this.state.everypage} <i className="fa fa-caret-down"></i></span>
                             <div id="e-xiala" className={`e-xiala e-xiala${this.state.randomnum}`}> 
-                                <span onClick={this.clickevery.bind(this,10)} className={this.state.everypage===10?"active":""}>10</span>
-                                <span onClick={this.clickevery.bind(this,20)} className={this.state.everypage===20?"active":""}>20</span>
-                                <span onClick={this.clickevery.bind(this,50)} className={this.state.everypage===50?"active":""}>50</span>
-                                <span onClick={this.clickevery.bind(this,100)} className={this.state.everypage===100?"active":""}>100</span>
+                                {
+                                    this.props.customSlide.map((custom,index)=>{
+                                        return <span key={"slidespage" + index} onClick={this.clickevery.bind(this, custom)} className={this.state.everypage === custom ? "active" : ""}>{custom}</span>
+                                    })
+                                }
                             </div>
                         </span>
                         条
@@ -516,7 +518,12 @@ Page.defaultProps = {
     inputColor: "#333",
     slideWidth:50,
     slideBgcolor:"#fff",
-    slideColor:"#333"
+    slideColor:"#333",
+    customSlide:[10,20,50,100],
+    slideHeight: 20,
+    slideActiveBgcolor: initcolor,
+    slideActiveFcolor: "#333333",
+    slideActiveOpacity: 20,
 };
 Page.propTypes = {
     usetheme: PropTypes.bool,
@@ -575,5 +582,13 @@ Page.propTypes = {
     ]),
     slideBgcolor: PropTypes.string,
     slideColor: PropTypes.string,
+    customSlide: PropTypes.array,
+    slideHeight: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    lideActiveBgcolor: PropTypes.string,
+    slideActiveFcolor: PropTypes.string,
+    slideActiveOpacity: PropTypes.number,
 };
 export default Page;
