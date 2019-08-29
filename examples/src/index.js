@@ -30,10 +30,9 @@ const App = () => {
         <React.Fragment>
             <ReactInput type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} /> 
             <Page
-                // usetheme
-                // theme="#ff0000"
+                usetheme
+                theme="var(--bgcolor)"
                 customSlide={[8,10,20,50,100]}
-                slideActiveBgcolor="#7059ef"
                 allNumber
                 jumpNumber
                 selectNumber

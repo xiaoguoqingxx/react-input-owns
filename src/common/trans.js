@@ -24,6 +24,17 @@ export function addOpacity(color,percent){
         arr[1] = arr[1] + number.toString(16);
         return arr.join("#")
     } else{
-        return color
+        let string = color.split("(")[1].split(")")[0].trim();
+        let colorstring = getComputedStyle(document.documentElement).getPropertyValue(string).trim();
+        if (colorstring.length===4){
+            let ones = colorstring.split("");
+            ones[1] += ones[1];
+            ones[2] += ones[2];
+            ones[3] += ones[3];
+            colorstring = ones.join("");
+        }
+        let arrs = colorstring.split("#");
+        arrs[1] = arrs[1] + number.toString(16);
+        return arrs.join("#")
     }
 }
