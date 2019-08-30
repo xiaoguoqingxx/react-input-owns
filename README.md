@@ -116,7 +116,7 @@ slideHeight | String、Number | #333 | 下拉框高
 slideActiveBgcolor | String | #1D82FE | 下拉框选项选中时的背景色
 slideActiveFcolor | String | #fff | 下拉框选项选中时的字体色
 slideActiveOpacity | Number | 20 | 拉框选项选中时的背景透明度 0-100
-
+slidePosition | String | up | 下拉方向 （提供 up和down两种）
 #### 2、需要传递的props方法如下：
 
 `changeNumber(page, all)` 改变当前页

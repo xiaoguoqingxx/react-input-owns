@@ -102,7 +102,9 @@ const Pagecss = styled.div`
             background: ${props => props.slideBgcolor};
             position: absolute;
             left:-1px;
-            top:21px;
+            
+            ${props => props.slidePosition === "up" ?"bottom:21px;":""}
+            ${props => props.slidePosition === "down" ? "top:21px;" : ""}
             border:${props => props.allBorderWidth}px solid ${props => {
                 if (props.usetheme) {
                     if (CheckIsColor(props.theme)) {
@@ -524,6 +526,7 @@ Page.defaultProps = {
     slideActiveBgcolor: initcolor,
     slideActiveFcolor: "#333333",
     slideActiveOpacity: 20,
+    slidePosition:"up",
 };
 Page.propTypes = {
     usetheme: PropTypes.bool,
@@ -590,5 +593,6 @@ Page.propTypes = {
     lideActiveBgcolor: PropTypes.string,
     slideActiveFcolor: PropTypes.string,
     slideActiveOpacity: PropTypes.number,
+    slidePosition: PropTypes.string
 };
 export default Page;
