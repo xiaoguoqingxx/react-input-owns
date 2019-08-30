@@ -469,7 +469,7 @@ class Page extends Component {
                     </span>
                 }
                 {
-                    controls.selectNumber && this.props.allPage > 10 &&
+                    controls.selectNumber && this.props.allPage > this.props.defalutEvery &&
                     <span className="every">
                         每页最多显示
                         <span id="everyxia" className={`everyxia`}>
@@ -527,6 +527,7 @@ Page.defaultProps = {
     slideActiveFcolor: "#333333",
     slideActiveOpacity: 20,
     slidePosition:"up",
+    defalutEvery:10
 };
 Page.propTypes = {
     usetheme: PropTypes.bool,
@@ -593,6 +594,7 @@ Page.propTypes = {
     lideActiveBgcolor: PropTypes.string,
     slideActiveFcolor: PropTypes.string,
     slideActiveOpacity: PropTypes.number,
-    slidePosition: PropTypes.string
+    slidePosition: PropTypes.string,
+    defalutEvery: PropTypes.number,
 };
 export default Page;
