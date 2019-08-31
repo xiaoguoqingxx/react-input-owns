@@ -191,7 +191,6 @@ class ReactInput extends Component {
         super(props, context);
         this.state = {
             value: props.defaultValue || "",
-            showcha:false,
             type: props.type || "text"
         }
     }
@@ -214,9 +213,6 @@ class ReactInput extends Component {
         this.props.changeContent && this.props.changeContent(value,this.props.name)
     }
     handleFocus(){
-        this.setState({
-            showcha: true
-        })
         this.props.focusContent && this.props.focusContent("", this.props.name)
     }
     clickClear(){
@@ -255,7 +251,7 @@ class ReactInput extends Component {
                     onFocus={this.handleFocus.bind(this)}
                 />
                 {
-                    !this.props.issearch &&this.state.showcha && this.state.value !== "" &&
+                    !this.props.issearch && this.state.value !== "" &&
                     <span className="cha icon-cha" onClick={this.clickClear.bind(this)}></span>
                 }
                 {
