@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import { render } from 'react-dom';
 import "./main.css";
-import { ReactInput, Page, Slide, Button, SlideAll} from '../../src';
+import { ReactInput, Page, Slide, Button, SlideAll, SearchInput} from '../../src';
 
 const App = () => {
     const [name,setName]= useState(1);
@@ -28,7 +28,9 @@ const App = () => {
     };
     return (
         <React.Fragment>
-            <ReactInput type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} /> 
+            <ReactInput type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} />
+
+            <SearchInput />  
             <Page
                 usetheme
                 theme="var(--bgcolor)"
