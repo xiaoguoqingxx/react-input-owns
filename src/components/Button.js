@@ -64,7 +64,7 @@ const Buttons = styled.div`
         }};
         ${props => props.width?`width:100%;`:"padding:0 10px;"}
         color:${props => props.fontColor};
-        cursor:${props=>props.cursors?"not-allowed":"pointer"};
+        cursor:${props=>props.cursor};
         transition:all 0.2s;
         font-size:${props => typeof props.fontSize === "number" ? props.fontSize + "px" : props.fontSize};
     }
