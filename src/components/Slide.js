@@ -383,7 +383,8 @@ Slide.propTypes = {
     theme: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
+        PropTypes.bool
     ]),
     list: PropTypes.array,
     width: PropTypes.oneOfType([
