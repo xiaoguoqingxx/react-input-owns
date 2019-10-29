@@ -45,7 +45,7 @@ const App = () => {
                 changeNumber={(page, all) => getPages(page, all)}
             />
             <Slide field="hollo" refresh value={name} doSelect={(value, name, field) => doSelect(value, name, field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]} />
-            <SlideAll field="hollos" refresh select={select} doSelect={(value,field) => doSelectAll(value, field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]} />
+            <SlideAll field="hollos" onlyid={false} refresh select={select} doSelect={(value,field) => doSelectAll(value, field)} list={[{ id: 1, name: "hollo" }, { id: 2, name: "hollo123" }]} />
             <Button icon={<span className="icon-cha"></span>} usetheme theme="var(--bgcolor)" doClick={()=>setName(2)} />
         </React.Fragment>
         

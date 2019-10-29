@@ -340,11 +340,11 @@ class SlideAll extends Component {
                                     title={val.name} 
                                     onClick={this.selectOne.bind(this,val)}
                                      className={
-                                         ((this.props.onlyid && this.state.select.includes(val.id)) || (!this.props.onlyid && this.state.select.findIndex(vals => vals.id === val.id)) )? "active xiala-cube" : "xiala-cube"
+                                         ((this.props.onlyid && this.state.select.includes(val.id)) || (!this.props.onlyid && this.state.select.findIndex(vals => vals.id === val.id)>-1))? "active xiala-cube" : "xiala-cube"
                                     }>
                                         <span className="iconname">{val.name}</span>
                                         <span className="iconimg">{
-                                            ((this.props.onlyid && this.state.select.includes(val.id)) || (!this.props.onlyid && this.state.select.findIndex(vals => vals.id === val.id))) &&
+                                            ((this.props.onlyid && this.state.select.includes(val.id)) || (!this.props.onlyid && this.state.select.findIndex(vals => vals.id === val.id) > -1)) &&
                                             (this.props.signicon || <i className="fa fa-check" aria-hidden="true"></i>)
                                         }
                                         </span>
