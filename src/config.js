@@ -5,3 +5,6 @@ export let color={
     "green": "#11BE73"
 };
 export let initcolor ="#1D82FE";
+export let initIconcolor = "#333333";
+export let initFontcolor = "#333333";
+export let initLinecolor = "#333333";

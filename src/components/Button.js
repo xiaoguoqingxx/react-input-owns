@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../css/font-awesome.min.css';
 import '../css/font.css';
 import styled, { css } from 'styled-components';
-import { TweenMax, Linear } from 'gsap';
 import PropTypes from 'prop-types';
 import { color, initcolor } from '../config';
 import { CheckIsColor } from '../common/trans';
@@ -13,7 +12,6 @@ const Buttons = styled.div`
     ${props => props.width ? `width:${typeof props.width === "number" ? props.width - props.borderWidth * 2 + "px" : props.width};`:""};
     height:${props => typeof props.height === "number" ? props.height - props.borderWidth * 2 + "px" : props.height};
     position:relative;
-    font-size:var(--middlesize);
     ${outer}
     button{
         display: flex;
