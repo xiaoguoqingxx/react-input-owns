@@ -203,9 +203,12 @@ class ReactInput extends Component {
         }
     }
     handleChange(event){
-        let value = event.target.value.replace(/(^\s*)|(\s*$)/g, "");
+        let value = event.target.value;
+        if (this.props.hasSpace){
+            value = value.replace(/(^\s*)|(\s*$)/g, "");
+        }
         if (this.props.pattern) {
-            value = event.target.value.replace(this.props.pattern, "");
+            value = value.replace(this.props.pattern, "");
         }
         this.setState({
             value: value
@@ -297,7 +300,8 @@ ReactInput.defaultProps = {
     pattern:null,//外部正则
     iconsize:14,
     eyesize:18,
-    searchsize:16
+    searchsize:16,
+    hasSpace:true
 };
 ReactInput.propTypes={
     issearch: PropTypes.bool,
@@ -352,6 +356,7 @@ ReactInput.propTypes={
     searchsize: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
-    ])
+    ]),
+    hasSpace: PropTypes.bool,
 };
 export default ReactInput;

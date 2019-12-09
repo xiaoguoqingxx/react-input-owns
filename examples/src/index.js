@@ -93,7 +93,7 @@ function App(){
                 </TreeCloud>
             </div>
             <h2>输入框</h2>
-            <ReactInput type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} />
+            <ReactInput hasSpace={false} type="password" haseye focusContent={(name, value) => focus(name, value)} changeContent={(name, value) => changes(name, value)} />
             <h2>搜索框</h2>
             <SearchInput />  
             <h2>分页</h2>
