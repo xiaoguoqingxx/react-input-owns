@@ -426,10 +426,14 @@ class Page extends Component {
                 {
                     controls.pageNumber && this.props.allPage > this.props.everyPage &&
                     <span className="pagenum">
-                        {(nowpage - forever.step) >= 3 && forever.whatpage > forever.pagenums+1 &&
+                        {nowpage > forever.step+1 && forever.whatpage > forever.pagenums+1 &&
                             <React.Fragment>
                                 <button onClick={this.handleClick.bind(this,1)}>1</button>
-                                <span className="etc">…</span>
+                                {
+                                   nowpage > forever.step+2 &&
+                                   <span className="etc">…</span>
+                                }
+                                
                             </React.Fragment>
                         }
                         {
@@ -444,7 +448,10 @@ class Page extends Component {
                         }
                         {nowpage < (forever.whatpage - forever.step) && forever.whatpage > forever.pagenums + 1 &&
                             <React.Fragment>
-                                <span className="etc">…</span>
+                                {
+                                    nowpage < (forever.whatpage - forever.step-1) &&
+                                    <span className="etc">…</span>
+                                }
                                 <button onClick={this.handleClick.bind(this, forever.whatpage)}>{forever.whatpage}</button>
                             </React.Fragment>
                         }
