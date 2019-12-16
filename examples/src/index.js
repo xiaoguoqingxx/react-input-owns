@@ -11,24 +11,24 @@ function App(){
     const [list, setlist] = useState(treenode);
     useEffect(() => {
       setTimeout(()=>{
-          const nre = _.cloneDeep(list)
-          nre.push({
-              "id": _.uniqueId("somesa"),
-              "name": "127.0.0.1",
-              "field_group_id": "277188557894513526",
-              "field_name": "URL",
-              "children": [
-                  {
-                      "id": _.uniqueId("hollo"),
-                      "name": "http://127.0.0.1:80",
-                      "field_group_id": "277188557894513526",
-                      "field_name": "URL",
-                      "children": []
-                  }
-              ]
-          })
-          setlist(nre)
-          cloud.current.expandAll()
+        //   const nre = _.cloneDeep(list)
+        //   nre.push({
+        //       "id": _.uniqueId("somesa"),
+        //       "name": "127.0.0.1",
+        //       "field_group_id": "277188557894513526",
+        //       "field_name": "URL",
+        //       "children": [
+        //           {
+        //               "id": _.uniqueId("hollo"),
+        //               "name": "http://127.0.0.1:80",
+        //               "field_group_id": "277188557894513526",
+        //               "field_name": "URL",
+        //               "children": []
+        //           }
+        //       ]
+        //   })
+        //   setlist(nre)
+        //   cloud.current.expandAll()
       },5000)
     },[])
     let changes=(name,value)=>{
@@ -105,7 +105,7 @@ function App(){
                 jumpNumber
                 selectNumber
                 nowpage={1}
-                allPage={300}
+                allPage={60}
                 everyPage={10}
                 changeEvery={(num)=>changeEvery(num)}
                 changeNumber={(page, all) => getPages(page, all)}
